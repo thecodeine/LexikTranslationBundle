@@ -311,6 +311,7 @@ app.directive('editableRow', [
                                 $scope.mode = null;
                                 $scope.translation = data;
                                 sharedMessage.set('success', 'ok-circle', translationCfg.label.updateSuccess.replace('%id%', data._key));
+                                translationApiManager.invalidateCache();
                             }).error(function () {
                                 sharedMessage.set('danger', 'remove-circle', translationCfg.label.updateFail.replace('%id%', $scope.translation._key));
                             });
